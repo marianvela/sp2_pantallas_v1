@@ -1,6 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend_sp2/ui/feature/menu/widget/dropzone.dart';
+
+import '../../../core/theming/app_colors.dart';
+import '../dashboard/dashboard_screen.dart';
+import '../sales_performance/sales_performance_screen.dart';
 
 @RoutePage()
 class MainMenuScreen extends StatefulWidget {
@@ -25,11 +30,11 @@ class _MyMenuPageState extends State<MainMenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Prometheus Analytics"),
-        centerTitle: true,
-        backgroundColor: Colors.deepOrange[400],
-      ),
+      // appBar: AppBar(
+      //   title: const Text("Prometheus Analytics"),
+      //   centerTitle: true,
+      //   backgroundColor: Colors.deepOrange[400],
+      // ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -38,15 +43,20 @@ class _MyMenuPageState extends State<MainMenuScreen> {
             style: SideMenuStyle(
               // showTooltip: false,
               displayMode: SideMenuDisplayMode.auto,
-              hoverColor: Colors.deepOrange[100],
-              selectedHoverColor: Colors.indigo[300],
-              selectedColor: Colors.indigo[900],
+              hoverColor: Colors.pink[100],
+              selectedHoverColor: AppColors.defaultRedColor,
+              selectedColor: AppColors.defaultRedColor,
               selectedTitleTextStyle: const TextStyle(color: Colors.white),
               selectedIconColor: Colors.white,
-              // decoration: BoxDecoration(
-              //   borderRadius: BorderRadius.all(Radius.circular(10)),
-              // ),
-              // backgroundColor: Colors.blueGrey[700]
+              unselectedIconColor: Colors.white70,
+              unselectedTitleTextStyle: const TextStyle(color: Colors.white70),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+              ),
+              backgroundColor: Colors.indigo[900]
             ),
             title: Column(
               children: [
@@ -55,8 +65,9 @@ class _MyMenuPageState extends State<MainMenuScreen> {
                     maxHeight: 150,
                     maxWidth: 150,
                   ),
-                  child: Image.network(
-                    "https://cdn-icons-png.flaticon.com/512/6820/6820756.png",
+                  child: Image.asset(
+                      'assets/img/prometheus.png',
+                    height: 125,
                   ),
                 ),
                 const Divider(
@@ -165,33 +176,33 @@ class _MyMenuPageState extends State<MainMenuScreen> {
             child: PageView(
               controller: pageController,
               children: [
+                DashboardScreen(),
+                // Container(
+                //   color: Colors.white,
+                //   child: const Center(
+                //     child: Text(
+                //       'Home',
+                //       style: TextStyle(fontSize: 35),
+                //     ),
+                //   ),
+                // ),
                 Container(
                   color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'Home',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
+                  child: Column(
+                    children: [
+                      const Center(
+                        child: Text(
+                          'File Upload',
+                          style: TextStyle(fontSize: 35),
+                        ),
+                      ),
+                      const Center(
+                        child: DropZoneWidget(),
+                      ),
+                    ],
+                  )
                 ),
-                Container(
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'File Upload',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'Sales Performance',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
+                const SalesPerformanceScreen(),
                 Container(
                   color: Colors.white,
                   child: const Center(

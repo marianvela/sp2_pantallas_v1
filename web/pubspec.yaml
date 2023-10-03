@@ -81,8 +81,6 @@ dependencies:
   awesome_dialog: ^3.1.0
   intl: ^0.18.1
   scidart: ^0.0.2-dev.12
-  flutter_dropzone: ^3.0.6
-  pie_chart: ^5.3.2
 
 dev_dependencies:
   flutter_test:
@@ -114,8 +112,6 @@ flutter:
     - assets/anim/
     - assets/dummy_data/
     - assets/dummy_data/sales_performance_dummy_data.json
-    - assets/img/
-    - assets/img/prometheus.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

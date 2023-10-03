@@ -10,36 +10,38 @@ class RegisterForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Crear cuenta",
-              style: Theme.of(context).textTheme.headline3,
-            ),
-            const SizedBox(height: Dimens.rowSeparationRegister),
-            _UserNameInput(),
-            const SizedBox(height: Dimens.rowSeparationRegister),
-            _UserLastNameInput(),
-            const SizedBox(height: Dimens.rowSeparationRegister),
-            _UserCompanyNit(),
-            const SizedBox(height: Dimens.rowSeparationRegister),
-            _UserCompanyName(),
-            const SizedBox(height: Dimens.rowSeparationRegister),
-            _UserEmailInput(),
-            const SizedBox(height: Dimens.rowSeparationRegister),
-            _PasswordInput(),
-            const SizedBox(height: Dimens.rowSeparationRegister),
-            const Align(
-              alignment: Alignment.centerRight,
-              child: _AlreadyHavingAnAccountButton(),
-            ),
-            const SizedBox(height: Dimens.rowSeparationRegister),
-            const _SubmitButton()
-          ],
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(50.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Crear cuenta",
+                style: Theme.of(context).textTheme.headline3,
+              ),
+              const SizedBox(height: Dimens.rowSeparationRegister),
+              _UserNameInput(),
+              const SizedBox(height: Dimens.rowSeparationRegister),
+              _UserLastNameInput(),
+              const SizedBox(height: Dimens.rowSeparationRegister),
+              _UserCompanyNit(),
+              const SizedBox(height: Dimens.rowSeparationRegister),
+              _UserCompanyName(),
+              const SizedBox(height: Dimens.rowSeparationRegister),
+              _UserEmailInput(),
+              const SizedBox(height: Dimens.rowSeparationRegister),
+              _PasswordInput(),
+              const SizedBox(height: Dimens.rowSeparationRegister),
+              const Align(
+                alignment: Alignment.centerRight,
+                child: _AlreadyHavingAnAccountButton(),
+              ),
+              const SizedBox(height: Dimens.rowSeparationRegister),
+              const _SubmitButton()
+            ],
+          ),
         ),
       ),
     );
